@@ -1,0 +1,31 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border-radius: 9999px;
+    background: var(--accent-color);
+}
+.checkbox{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked + *{
+        right: 0;
+    }
+    &:not(:checked) + * *{
+        left: 0;
+    }
+}
+
+.circle{
+    position: absolute;
+    margin: 0 4px;
+    background: var(--bg);
+    border-radius: 9999px;
+    width: 12px;
+    height: 12px;
+}

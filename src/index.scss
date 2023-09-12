@@ -1,0 +1,39 @@
+* {
+    appearance: none;
+    border: 0;
+    outline: none;
+    background: none;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    --border-radius: 4px;
+    --accent-color: #217245;
+    --accent-color-hover: #247e4b;
+
+    &[data-theme='dark'] {
+        --second-color: rgb(88, 88, 88);
+        --second-color-hover: rgb(96, 96, 96);
+        --bg: #313131;
+        background: var(--bg);
+
+        & *{
+            color: white;
+        }
+    }
+
+    &[data-theme='light'] {
+        color: black;
+    }
+
+}
+hr{
+    border-top: 1px solid var(--second-color);
+
+}
+::selection{
+    background: var(--accent-color);
+}

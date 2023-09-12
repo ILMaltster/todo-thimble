@@ -1,0 +1,30 @@
+.wrapper{
+    display: flex;
+    gap: 6px;
+}
+.checkbox{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked + *{
+        background: var(--accent-color);
+        & *{
+            color: var(--bg);
+        }
+    }
+    &:not(:checked) + * *{
+        display: none;
+    }
+}
+
+.checkboxFake{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 20px;
+    height: 20px;
+}

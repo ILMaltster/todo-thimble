@@ -1,0 +1,9 @@
+.button{
+    background: var(--second-color);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    color: inherit;
+    &:hover{
+        background: var(--second-color-hover);
+    }
+}

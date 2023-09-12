@@ -1,0 +1,32 @@
+.select{
+    border: 1px solid var(--second-color);
+    border-radius: var(--border-radius);
+    padding: 8px 50px 8px 6px;
+    width: 100%;
+    &:focus{
+        outline: 2px solid var(--accent-color);
+        outline-offset: -2px;
+    }
+
+    & option{
+        background: var(--bg);
+        border-radius: 0;
+    }
+}
+.selectWrapper{
+    position: relative;
+    width: 200px;
+    & button{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        background: var(--second-color);
+        padding: 8px 12px;
+        color: inherit;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        pointer-events: none;
+        &:hover{
+            background: var(--second-color-hover);
+        }
+    }
+}

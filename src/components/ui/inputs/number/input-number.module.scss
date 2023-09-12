@@ -1,0 +1,30 @@
+.input{
+    border: 1px solid var(--second-color);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    padding: 8px 6px;
+
+    &:focus{
+        outline: 2px solid var(--accent-color);
+        outline-offset: -2px;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+.inputWrapper{
+    display: flex;
+    & button{
+        height: 100%;
+        background: var(--second-color);
+        padding: 8px 12px;
+        color: inherit;
+        &:hover{
+            background: var(--second-color-hover);
+        }
+        &:last-child{
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+    }
+}

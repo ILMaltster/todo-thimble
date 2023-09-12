@@ -1,0 +1,10 @@
+.main{
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+
+    & fieldset{
+        border: 2px solid var(--second-color);
+        border-radius: var(--border-radius);
+    }
+}

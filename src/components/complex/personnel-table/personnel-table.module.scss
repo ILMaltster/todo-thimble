@@ -1,0 +1,16 @@
+.table{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-spacing: 0;
+    & th{
+        background: var(--second-color);
+        font-weight: normal;
+    }
+    & tbody{
+        height: 100%;
+    }
+}
+.active{
+    background: var(--accent-color);
+}
