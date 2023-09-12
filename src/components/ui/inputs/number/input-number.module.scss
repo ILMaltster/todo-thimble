@@ -1,8 +1,9 @@
 .input{
+    display: flex;
+    min-width: 110px;
     border: 1px solid var(--second-color);
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     padding: 8px 6px;
-
     &:focus{
         outline: 2px solid var(--accent-color);
         outline-offset: -2px;
@@ -14,11 +15,13 @@
     }
 }
 .inputWrapper{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
     & button{
         height: 100%;
         background: var(--second-color);
-        padding: 8px 12px;
+        padding: 8px 8px;
         color: inherit;
         &:hover{
             background: var(--second-color-hover);
@@ -26,5 +29,9 @@
         &:last-child{
             border-radius: 0 var(--border-radius) var(--border-radius) 0;
         }
+    }
+    .buttons{
+        display: flex;
+        flex-wrap: nowrap;
     }
 }

@@ -14,13 +14,13 @@ const NumberInput: FC<INumberInputProps> = (
     }) => {
     const numberInput = useRef<HTMLInputElement>(null);
 
-    const increment = ()=>{
+    const increment = () => {
         let event = new Event('input', { bubbles: true });
         numberInput.current?.stepUp();
         numberInput.current?.dispatchEvent(event);
     }
 
-    const decrement = ()=>{
+    const decrement = () => {
         let event = new Event('input', { bubbles: true });
         numberInput.current?.stepDown()
         numberInput.current?.dispatchEvent(event);
@@ -33,7 +33,7 @@ const NumberInput: FC<INumberInputProps> = (
                    className={`${inputNumberStyles.input} ${className}`}
                    {...props}
             />
-            <div>
+            <div className={inputNumberStyles.buttons}>
                 <button type={"button"} onClick={decrement}>
                     <FontAwesomeIcon icon={faChevronDown} />
                 </button>

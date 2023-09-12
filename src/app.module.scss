@@ -1,10 +1,15 @@
 .main{
+
+    width: 800px;
+    margin-top: 8px;
+    margin-inline: auto;
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 20px;
+    height: 350px;
 
     & fieldset{
-        border: 2px solid var(--second-color);
+        border: 1px solid var(--second-color);
         border-radius: var(--border-radius);
     }
 }

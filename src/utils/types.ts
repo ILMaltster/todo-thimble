@@ -1,3 +1,5 @@
+import {Subscription} from "./consts";
+
 export type TEmployee = {
     id: number | string;
     name: string;
@@ -6,8 +8,22 @@ export type TEmployee = {
     employed: boolean;
 }
 
-export enum Subscription{
-    Subscribed,
-    NotSubscribed,
-    Other
+export type TThemeVariants = "dark" | "light";
+
+export interface IInsertDataAction{
+    type: "insert",
+    payload: TEmployee
 }
+
+export interface IDeleteDataAction{
+    type: "delete",
+    payload: number
+}
+
+export interface ISetDataAction{
+    type: "set",
+    payload: TEmployee[]
+}
+
+
+export type TEmployeesReducerActions = IInsertDataAction | IDeleteDataAction | ISetDataAction;

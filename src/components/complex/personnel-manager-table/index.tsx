@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
-import {Subscription, TEmployee} from "../../../utils/types";
-import personnelTableStyles from './personnel-table.module.scss';
+import {TEmployee} from "../../../utils/types";
+import personnelTableStyles from './personnel-manager-table.module.scss';
+import {Subscription} from "../../../utils/consts";
 
-const PersonnelTable = () => {
+const PersonnelManagerTable = () => {
     const prevSelect = useRef<HTMLTableRowElement | null>(null);
     let employess: TEmployee[] = [
         {id: 1, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
@@ -69,4 +70,4 @@ const PersonnelTable = () => {
     );
 };
 
-export default PersonnelTable;
+export default PersonnelManagerTable;

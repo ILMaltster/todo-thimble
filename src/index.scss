@@ -3,13 +3,13 @@
     border: 0;
     outline: none;
     background: none;
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
     font-family: "Segoe UI", serif;
     font-size: 14px;
-    box-sizing: border-box;
     --border-radius: 4px;
     --accent-color: #217245;
     --accent-color-hover: #247e4b;
@@ -26,13 +26,20 @@ body {
     }
 
     &[data-theme='light'] {
-        color: black;
+        --second-color: rgb(202, 202, 202);
+        --second-color-hover: rgb(194, 194, 194);
+        --bg: #ffffff;
+        background: var(--bg);
+
+        & *{
+            color: black;
+        }
     }
 
 }
 hr{
     border-top: 1px solid var(--second-color);
-
+    width: 100%;
 }
 ::selection{
     background: var(--accent-color);
