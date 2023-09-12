@@ -7,7 +7,7 @@ interface IDataContextValue{
     dispatch: React.Dispatch<TEmployeesReducerActions>;
 }
 
-const DataContext = createContext<IDataContextValue>({data: [], dispatch: ()=>{}})
+export const DataContext = createContext<IDataContextValue>({data: [], dispatch: ()=>{}})
 
 const reducer: Reducer<TEmployee[], TEmployeesReducerActions> = (
     state: TEmployee[],

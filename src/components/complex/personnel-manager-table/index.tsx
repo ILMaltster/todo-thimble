@@ -1,26 +1,11 @@
-import React, {useRef} from 'react';
-import {TEmployee} from "../../../utils/types";
+import React, {useContext, useRef} from 'react';
 import personnelTableStyles from './personnel-manager-table.module.scss';
 import {Subscription} from "../../../utils/consts";
+import {DataContext} from "../../../providers/data-provider/data-provider";
 
 const PersonnelManagerTable = () => {
     const prevSelect = useRef<HTMLTableRowElement | null>(null);
-    let employess: TEmployee[] = [
-        {id: 1, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 2, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-        {id: 3, name: "test", subscription: Subscription.Subscribed, age: 20, employed: true},
-    ]
+    const {data} = useContext(DataContext);
 
     const getSubscriptionValue = (subscription: Subscription)=>{
         switch (subscription){
@@ -54,7 +39,7 @@ const PersonnelManagerTable = () => {
                 </tr>
                 <tbody>
                 {
-                    employess.map(elem=>(
+                    data.map(elem=>(
                         <tr key={elem.id} onClick={selectedRow}>
                             <td>{elem.name}</td>
                             <td>{elem.age}</td>
