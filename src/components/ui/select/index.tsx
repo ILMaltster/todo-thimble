@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import selectStyles from './select.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ interface INumberInputProps extends React.SelectHTMLAttributes<HTMLSelectElement
     className?: string;
 }
 
-const Select: FC<INumberInputProps> = ({value, className, ...props}) => {
+const Select: FC<INumberInputProps> = memo(({className, ...props}) => {
     return (
         <div className={selectStyles.selectWrapper}>
             <select id={selectStyles.select}
@@ -21,6 +21,6 @@ const Select: FC<INumberInputProps> = ({value, className, ...props}) => {
                 </button>
         </div>
     );
-};
+});
 
 export default Select;

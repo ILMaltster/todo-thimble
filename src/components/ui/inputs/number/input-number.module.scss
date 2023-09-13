@@ -1,4 +1,6 @@
 .input{
+    -webkit-appearance: none;
+    -moz-appearance:textfield;
     display: flex;
     min-width: 110px;
     border: 1px solid var(--second-color);
@@ -12,6 +14,7 @@
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
+        -moz-appearance: none;
     }
 }
 .inputWrapper{

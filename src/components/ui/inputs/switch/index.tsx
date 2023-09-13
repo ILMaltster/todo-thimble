@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import inputSwitchStyles from './input-switch.module.scss';
 
 interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
@@ -6,7 +6,7 @@ interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     className?: string;
 }
 
-const SwitchInput: FC<ITextInputProps> = ({title, className, ...props}) => {
+const SwitchInput: FC<ITextInputProps> = memo(({title, className, ...props}) => {
     return (
         <div className={inputSwitchStyles.container}>
             <label className={inputSwitchStyles.wrapper}>
@@ -20,6 +20,6 @@ const SwitchInput: FC<ITextInputProps> = ({title, className, ...props}) => {
             <label>{title}</label>
         </div>
     );
-};
+});
 
 export default SwitchInput;

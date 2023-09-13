@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import inputCheckboxStyles from './input-checkbox.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck} from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ interface ITextInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     className?: string;
 }
 
-const CheckBox: FC<ITextInputProps> = ({title, className, ...props}) => {
+const CheckBox: FC<ITextInputProps> = memo(({title, className, ...props}) => {
     return (
         <label className={inputCheckboxStyles.wrapper}>
             <input type="checkbox"
@@ -22,6 +22,6 @@ const CheckBox: FC<ITextInputProps> = ({title, className, ...props}) => {
             {title}
         </label>
     );
-};
+});
 
 export default CheckBox;

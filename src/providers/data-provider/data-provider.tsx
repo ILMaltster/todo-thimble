@@ -4,10 +4,15 @@ import {setData} from "./action-creators";
 
 interface IDataContextValue{
     data: TEmployee[];
-    dispatch: React.Dispatch<TEmployeesReducerActions>;
+    dataDispatch: React.Dispatch<TEmployeesReducerActions>;
 }
 
-export const DataContext = createContext<IDataContextValue>({data: [], dispatch: ()=>{}})
+const contextInitState: IDataContextValue = {
+    data: [],
+    dataDispatch: ()=>{}
+}
+
+export const DataContext = createContext<IDataContextValue>(contextInitState)
 
 const reducer: Reducer<TEmployee[], TEmployeesReducerActions> = (
     state: TEmployee[],
@@ -16,7 +21,7 @@ const reducer: Reducer<TEmployee[], TEmployeesReducerActions> = (
     const {type, payload} = action;
     switch(type){
         case "insert":
-            window.localStorage.setItem("data", JSON.stringify(payload))
+            window.localStorage.setItem("data", JSON.stringify([...state, payload]))
             return [...state, payload];
         case "delete":
             const newValue = state.filter(elem=>elem.id !== payload)
@@ -31,7 +36,6 @@ const reducer: Reducer<TEmployee[], TEmployeesReducerActions> = (
 
 const DataProvider: FC<React.PropsWithChildren> = ({children}) => {
     const [employees, dispatch] = useReducer(reducer,[])
-
     useEffect(()=>{
         const dataString = window.localStorage.getItem("data");
         if(dataString){
@@ -40,9 +44,9 @@ const DataProvider: FC<React.PropsWithChildren> = ({children}) => {
         }
     }, [])
 
-    const contextValue = {
+    const contextValue: IDataContextValue = {
         data: employees,
-        dispatch
+        dataDispatch: dispatch
     }
 
     return (

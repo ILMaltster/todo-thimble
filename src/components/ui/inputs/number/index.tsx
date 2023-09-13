@@ -1,4 +1,4 @@
-import React, {FC, useRef} from 'react';
+import React, {FC, memo, useRef} from 'react';
 import inputNumberStyles from './input-number.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
@@ -7,12 +7,10 @@ interface INumberInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     className?: string;
 }
 
-const NumberInput: FC<INumberInputProps> = (
-    {
-        value = 0, onChange,
-        className, ...props
-    }) => {
-    const numberInput = useRef<HTMLInputElement>(null);
+const NumberInput: FC<INumberInputProps> = memo(
+    ({className, ...props }) => {
+
+        const numberInput = useRef<HTMLInputElement>(null);
 
     const increment = () => {
         let event = new Event('input', { bubbles: true });
@@ -26,12 +24,10 @@ const NumberInput: FC<INumberInputProps> = (
         numberInput.current?.dispatchEvent(event);
     }
 
-
     return (
         <div className={inputNumberStyles.inputWrapper}>
-            <input ref={numberInput} type="number" value={value} onChange={onChange}
-                   className={`${inputNumberStyles.input} ${className}`}
-                   {...props}
+            <input ref={numberInput} type="number"
+                   className={`${inputNumberStyles.input} ${className}`} {...props}
             />
             <div className={inputNumberStyles.buttons}>
                 <button type={"button"} onClick={decrement}>
@@ -43,6 +39,6 @@ const NumberInput: FC<INumberInputProps> = (
             </div>
         </div>
     );
-};
+});
 
 export default NumberInput;

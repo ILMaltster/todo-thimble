@@ -11,5 +11,6 @@
     & fieldset{
         border: 1px solid var(--second-color);
         border-radius: var(--border-radius);
+        min-height: 100%;
     }
 }

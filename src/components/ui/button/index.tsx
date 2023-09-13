@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import buttonStyles from './button.module.scss';
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
 }
 
-const Button: FC<IButtonProps> = (
+const Button: FC<IButtonProps> = memo((
     {
         className,
         ...props
@@ -15,6 +15,6 @@ const Button: FC<IButtonProps> = (
             {props.children}
         </button>
     );
-};
+});
 
 export default Button;

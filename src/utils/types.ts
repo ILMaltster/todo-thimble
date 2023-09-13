@@ -1,7 +1,7 @@
 import {Subscription} from "./consts";
 
 export type TEmployee = {
-    id: number | string;
+    id: number;
     name: string;
     age: number;
     subscription: Subscription;
